@@ -7,32 +7,35 @@
 
 > Tools for maintaining infrastructure for the IPFS community.
 
-- Introduction
+- Overview
 - Getting started
 - Usage
 - Known issues
 - Common tasks
 
-### Introduction
+
+### Overview
 
 This repository contains the technical infrastructure of the IPFS community.
 
 - Public HTTP-to-IPFS Gateway: https://ipfs.io
-- Default bootstrap used by IPFS: `ipfs bootstrap`
+- Default bootstrap nodes used by IPFS: `ipfs bootstrap`
 - Private networking between the hosts
 - Monitoring of services and hosts: http://metrics.ipfs.team
 - Pinbot, an IRC bot in chat.freenode.net/#ipfs-pinbot
 - Seeding of $important objects, in `seeding/` (not really maintained at the moment)
+  - This is obsolete and kept purely because nobody has made sure yet that
 
 Infrastructure that isn't contained here:
 
-- Websites deployment: ipfs.io, dist.ipfs.io, blog.ipfs.io, chat.ipfs.io
-- DNS settings for ipfs.io, ipld.io, multiformats.io, libp2p.io, orbit.chat, ipfs.team, protocol.ai
-- TeamCity CI: http://ci.ipfs.team:8111
+- Websites deployment: done in each repo separately, e.g. ipfs/website, ipfs/blog, libp2p/website, ipfs/distributions
+- DNS: done pretty much manually through DNSimple dashboard -- and ipfs.io and ipfs.team are still in DigitalOcean
+- CI: https://github.com/ipfs/jenkins
+
 
 ### Getting started
 
-We use a tool called Provsn to maintain the setup of hosts and services.
+We use a custom tool called Provsn to maintain the setup of hosts and services.
 The fundamental principle of Provsn is that hosts are in a certain state,
 and units of code are run to transition into a different state.
 
