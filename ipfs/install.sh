@@ -52,6 +52,8 @@ if [ "rebuild$rebuild" == "rebuild1" ]; then
   restart=1
 fi
 
+rm -vf "$repo/config"
+docker stop ipfs
 if [ ! -f "$repo/config" ]; then
   mkdir -p "$repo"
   chown -R 1000:users "$repo"
